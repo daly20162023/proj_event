@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD
-
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=eventsProject
     ports:
       - 3306:3306
@@ -26,6 +26,7 @@ services:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/eventsProject?useSSL=false",
         "spring.datasource.username" : "root",
+        "spring.datasource.password" : "root",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update"}'
     volumes:
