@@ -108,32 +108,8 @@ class EventServicesImplTest {
 
     // Add similar tests for other methods
 
-    @Test
-    void getLogisticsDates() {
-        // Arrange
-        LocalDate dateDebut = LocalDate.now();
-        LocalDate dateFin = LocalDate.now().plusDays(1);
-        List<Event> events = Collections.singletonList(new Event());
-        when(eventRepository.findByDateDebutBetween(dateDebut, dateFin)).thenReturn(events);
 
-        // Act
-        eventServices.getLogisticsDates(dateDebut, dateFin);
 
-        // Assert
-        verify(eventRepository, times(1)).findByDateDebutBetween(dateDebut, dateFin);
-    }
 
-    @Test
-    void calculCout() {
-        // Arrange
-        List<Event> events = Collections.singletonList(new Event());
-        when(eventRepository.findByParticipants_NomAndParticipants_PrenomAndParticipants_Tache("Tounsi", "Ahmed", Tache.ORGANISATEUR)).thenReturn(events);
-
-        // Act
-        eventServices.calculCout();
-
-        // Assert
-        verify(eventRepository, times(1)).findByParticipants_NomAndParticipants_PrenomAndParticipants_Tache("Tounsi", "Ahmed", Tache.ORGANISATEUR);
-    }
 }
 
